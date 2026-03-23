@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OCR Tool</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #0f2027;
+      color: white;
+    }
+
+    input {
+      margin: 15px;
+    }
+
+    #result {
+      margin-top: 20px;
+      background: white;
+      color: black;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Image to Text (OCR) 📷➡️📝</h1>
+
+<input type="file" onchange="showText()">
+
+<div id="result">Text will appear here...</div>
+
+<script>
+function showText() {
+  document.getElementById("result").innerText =
+    "Demo OCR tool 😄\n\nReal text extraction coming soon...";
+}
+</script>
+
+</body>
+</html>
