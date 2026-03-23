@@ -1,54 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>File Sharing Tool</title>
+  <title>File Share</title>
+
   <style>
     body {
       text-align: center;
-      font-family: Arial;
       background: #0f2027;
       color: white;
-    }
-
-    input {
-      margin: 15px;
+      font-family: Arial;
     }
 
     button {
       padding: 10px 20px;
       background: #00ffd5;
       border: none;
-      cursor: pointer;
       font-weight: bold;
-    }
-
-    #link {
-      margin-top: 20px;
-      color: #00ffd5;
-      font-size: 18px;
+      margin: 10px;
     }
   </style>
 </head>
 
 <body>
 
-<h1>File Sharing Tool 📤</h1>
+<h1>Share This Page 📤</h1>
 
-<input type="file" id="file"><br>
-
-<button onclick="generateLink()">Generate Link</button>
-
-<p id="link"></p>
+<button onclick="share()">Share Website</button>
 
 <script>
-function generateLink() {
-  let file = document.getElementById("file").files[0];
-
-  if(file) {
-    let fakeLink = "https://gopalshare.com/" + file.name;
-    document.getElementById("link").innerText = "Share Link: " + fakeLink;
+function share() {
+  if (navigator.share) {
+    navigator.share({
+      title: "Gopal Website",
+      text: "Check this awesome tools website 🔥",
+      url: window.location.href
+    });
   } else {
-    alert("Please select a file");
+    alert("Sharing not supported on this device");
   }
 }
 </script>
